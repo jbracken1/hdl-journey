@@ -14,7 +14,6 @@ in digital hardware.
 ## Tools
 - Intel Quartus Prime
 - Basys 3 FPGA board (Digilent)
-- Icarus Verilog + GTKWave for simulation
 
 ## Goals for Summer 2026
 - [ ] Relearn Verilog without a skeleton
