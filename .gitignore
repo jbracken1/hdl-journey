@@ -1,0 +1,20 @@
+# Quartus generated files
+*.qpf
+*.qsf
+*.qdf
+*.qws
+*.jdi
+*.sof
+*.pof
+*.rpt
+*.summary
+*.pin
+*.done
+*.smsg
+*.bak
+db/
+incremental_db/
+output_files/
+simulation/
+hdb/
+.qsys_edit/
