@@ -29,6 +29,7 @@ hdb/
 *.tcl
 *.prj
 *.ini
+*.xpr
 glbl.v
 .Xil/
 *cache/
