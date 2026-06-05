@@ -18,3 +18,26 @@ output_files/
 simulation/
 hdb/
 .qsys_edit/
+
+# Vivado generated files
+*.jou
+*.log
+*.pb
+*.wdb
+*.str
+*.bat
+*.tcl
+*.prj
+*.ini
+glbl.v
+.Xil/
+*cache/
+*hw/
+*sim_1/
+*ip_user_files/
+*/vivado_pid*.str
+*_project.cache/
+*_project.hw/
+*_project.ip_user_files/
+*_project.runs/
+*_project.sim/
