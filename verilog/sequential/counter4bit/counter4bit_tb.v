@@ -4,6 +4,7 @@ module counter4bit_tb;
     reg reset;
     wire [3:0] count;
 
+    // setting up clock
     initial clk = 0;
     always #5 clk = ~clk;
 
