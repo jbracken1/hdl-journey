@@ -42,3 +42,5 @@ glbl.v
 *_project.ip_user_files/
 *_project.runs/
 *_project.sim/
+*srcs/
+*runs/
