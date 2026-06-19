@@ -17,6 +17,7 @@ module alu(
             3'b101: result = ~A;
             3'b110: result = A << 1;
             3'b111: result = A >> 1;
+            default: result = 4'b0000;
         endcase
     end
 
