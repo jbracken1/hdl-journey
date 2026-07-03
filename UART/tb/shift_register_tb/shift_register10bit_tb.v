@@ -3,6 +3,7 @@ module shift_register10bit_tb;
     reg [9:0] in;
     reg load;
     reg reset;
+    reg ena;
     wire [9:0] register;
     wire out;
 
@@ -10,12 +11,18 @@ module shift_register10bit_tb;
     initial clk = 0;
     always #5 clk = ~clk;
 
-    shift_register10bit uut(.clk(clk), .in(in), .load(load), .reset(reset), .register(register), .out(out));
+    shift_register10bit uut(.clk(clk), .in(in), .load(load), .reset(reset), .ena(ena), .register(register), .out(out));
 
     initial begin
+        ena = 1'b1;
         in = 10'b0; load = 1'b0; reset = 1'b1; #10;
         in = 10'b1010101010; load = 1'b1; reset = 1'b0; #10;
-        in = 10'b0; load = 1'b0; reset = 1'b0; #110;
+
+        ena = 1'b1; 
+        in = 10'b0; load = 1'b0; reset = 1'b0; #50;
+
+        ena = 1'b0; #40;
+        ena = 1'b1; #60;
 
         in = 10'b1011111011; load = 1'b1; reset = 1'b0; #10;
         in = 10'b0; load = 1'b0; reset = 1'b0; #50;

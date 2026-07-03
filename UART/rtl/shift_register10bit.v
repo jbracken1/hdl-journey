@@ -3,16 +3,19 @@ module shift_register10bit(
     input [9:0] in,
     input load,
     input reset,
+    input ena,
     output reg [9:0] register,
-    output reg out
+    output out
 );
+
+    assign out = register[0];
 
     always @(posedge clk) begin
         
-        if (load)
+        if (load) begin
             register <= in;
-        else begin
-            out <= register[0];
+        end
+        else if (ena) begin
             register[8:0] <= register[9:1];
             register[9] <= 1'b0;
         end
