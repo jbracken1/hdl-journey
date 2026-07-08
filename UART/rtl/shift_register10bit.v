@@ -1,5 +1,6 @@
 module shift_register10bit(
     input clk,
+    input input_bit, 
     input [9:0] in,
     input load,
     input reset,
@@ -17,7 +18,7 @@ module shift_register10bit(
         end
         else if (ena) begin
             register[8:0] <= register[9:1];
-            register[9] <= 1'b0;
+            register[9] <= input_bit;
         end
 
         if (reset)

@@ -29,7 +29,7 @@ module uart_tx_tb;
         load_tx = 1'b0;
         $display("%s", (tx_busy) ? "TX busy" : "TX NOT busy");
 
-        for (i=0; i <= 10; i = i + 1) begin
+        for (i=0; i <= 9; i = i + 1) begin
             @(posedge baud_tick);
             captured_bits[i] = tx_pin; 
         end 

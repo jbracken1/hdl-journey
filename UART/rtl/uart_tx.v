@@ -12,7 +12,7 @@ module uart_tx(
     wire [9:0] shift_reg;
     wire shift_out;
 
-    shift_register10bit sr10(.clk(clk), .in({1'b1, tx_data, 1'b0}), .load(load_tx), .reset(1'b0), .ena(shift_enable), .register(shift_reg), .out(shift_out));
+    shift_register10bit sr10(.clk(clk), .input_bit(1'b0), .in({1'b1, tx_data, 1'b0}), .load(load_tx), .reset(1'b0), .ena(shift_enable), .register(shift_reg), .out(shift_out));
 
     assign tx_pin = (tx_busy) ? shift_out : 1'b1;
     assign shift_enable = baud_tick && tx_busy;
