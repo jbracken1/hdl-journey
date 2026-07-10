@@ -7,7 +7,6 @@ module fir_filter(
 );
 
     wire [15:0] registers [31:0];
-
     // delay line
     genvar i;
     generate 
@@ -16,7 +15,13 @@ module fir_filter(
         end
     endgenerate
 
+    wire [31:0] mult_out [31:0];
     // multiplier
+    generate 
+        for (i=0; i < 32; i = i + 1) begin
+            multiplier mult(.clk(clk), .a(registers[i]), .b(16'h10), .ena(ena), .out(mult_out[i]));
+        end
+    endgenerate
 
     // adder
 
