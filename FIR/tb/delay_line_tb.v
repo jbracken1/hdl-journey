@@ -1,9 +1,9 @@
 module delay_line_tb;
     reg clk;
-    reg [15:0] in;
+    reg signed [15:0] in;
     reg ena;
     reg reset;
-    wire [15:0] out;
+    wire signed [15:0] out;
 
      // setting up clock
     initial clk = 0;

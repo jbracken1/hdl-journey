@@ -1,9 +1,9 @@
 module register16bit(
     input clk,
-    input [15:0] in,
+    input signed [15:0] in,
     input ena,
     input reset,
-    output reg [15:0] data
+    output reg signed [15:0] data
 );
 
     always @(posedge clk) begin     

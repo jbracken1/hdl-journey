@@ -1,4 +1,4 @@
-module multiplier_tb;
+module rounding_tb;
     reg clk;
     reg [15:0] in;
     reg ena;
@@ -16,7 +16,7 @@ module multiplier_tb;
     initial begin
         reset = 1'b1;
         ena = 1'b0;
-        in = 1'b1;
+        in = 1'b0;
 
         // two positive clock edges so that reset is properly recognized. 
         // otherwise, reset goes low before filter can process it
@@ -25,22 +25,21 @@ module multiplier_tb;
         reset = 1'b0;
         ena = 1'b1;
 
-        // @(posedge clk);
-        for (i=0; i<32; i=i+1) begin
-            in = i;
-            $display("i: %h", in);
-            $display("product[0]: %h", uut.mult_out[0]);
+        in = 16'b1;
+        @(posedge clk);
+
+        repeat (31) begin
+            in = 1'b0;
             @(posedge clk);
-            // @(posedge clk);
         end
 
-        // needs 2 extra cycles to pass through the delay line into the multiplier
         @(posedge clk);
-        @(posedge clk);
+        @(posedge clk);        
+        $display("sum: %b", uut.sum);
 
-        for (i=0; i<32; i=i+1) begin
-            $display("Register[%d]: %h", i, uut.mult_out[i]);
-        end
+
+        $display("%s", uut.fixed_point_out==1 ? "Rounded" : "Not Rounded");
+        $display("%h", uut.fixed_point_out);
 
         $finish;
     end
