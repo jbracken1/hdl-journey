@@ -6,6 +6,15 @@ module fir_filter(
     output signed [15:0] out
 );
 
+    // FIR Filter coefficients
+    reg signed [15:0] coeff [0:31];
+
+    // reads coefficients from a .hex file
+    parameter COEFF_FILE = "../../../../../hex/test_coefficients.hex";    // default coefficients. my project files are in a separate folder one level further so i use an extra ..           
+    initial begin
+        $readmemh(COEFF_FILE, coeff);
+    end
+
     wire signed [15:0] registers [31:0];
     // delay line
     genvar i;
@@ -22,7 +31,7 @@ module fir_filter(
     wire signed [31:0] mult_out [31:0];
     generate 
         for (i=0; i < 32; i = i + 1) begin
-            multiplier mult(.clk(clk), .a(registers[i]), .b(16'h4000), .ena(ena), .out(mult_out[i]));
+            multiplier mult(.clk(clk), .a(registers[i]), .b(coeff[i]), .ena(ena), .out(mult_out[i]));
         end
     endgenerate
 
@@ -50,8 +59,7 @@ module fir_filter(
         end
     end
 
-    // temp
-    assign out = 1'b0;
+    assign out = fixed_point_out;
     
 
 endmodule
