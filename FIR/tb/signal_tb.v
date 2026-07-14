@@ -1,4 +1,4 @@
-module rounding_tb;
+module signal_tb;
     reg clk;
     reg [15:0] in;
     reg ena;
@@ -12,11 +12,18 @@ module rounding_tb;
     fir_filter uut(.clk(clk), .in(in), .ena(ena), .reset(reset), .out(out));
 
     integer i;
+    parameter IS_FILE = "../../../../../hex/input_signal.hex";
+    parameter OS_FILE = "../../../../../hex/output_signal.hex";
+    reg signed [15:0] input_signal [0:1023];
+
+    integer file;
 
     initial begin
+        $readmemh(IS_FILE, input_signal);
+
         reset = 1'b1;
         ena = 1'b0;
-        in = 1'b0;
+        in = 16'b0;
 
         // two positive clock edges so that reset is properly recognized. 
         // otherwise, reset goes low before filter can process it
@@ -25,22 +32,14 @@ module rounding_tb;
         reset = 1'b0;
         ena = 1'b1;
 
-        in = 16'h7FFF;
-        @(posedge clk);
+        file = $fopen(OS_FILE, "w");
 
-        repeat (31) begin
-            in = 1'b0;
+        for (i=0; i<1024; i=i+1) begin
+            in = input_signal[i];
             @(posedge clk);
-            $display("out: %h", out);
+            $fdisplay(file, "%h", out);  // Write hex value
         end
-
-        @(posedge clk);
-        @(posedge clk);        
-        $display("sum: %b", uut.sum);
-
-
-        $display("%s", uut.fixed_point_out==1 ? "Rounded" : "Not Rounded");
-        $display("%h", uut.fixed_point_out);
+        $fclose(file);
 
         $finish;
     end

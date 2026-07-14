@@ -44,3 +44,5 @@ glbl.v
 *_project.sim/
 *srcs/
 *runs/
+
+venv/

@@ -10,7 +10,7 @@ module fir_filter(
     reg signed [15:0] coeff [0:31];
 
     // reads coefficients from a .hex file
-    parameter COEFF_FILE = "../../../../../hex/test_coefficients.hex";    // default coefficients. my project files are in a separate folder one level further so i use an extra ..           
+    parameter COEFF_FILE = "../../../../../hex/coefficients.hex";    // default coefficients. my project files are in a separate folder one level further so i use an extra ..           
     initial begin
         $readmemh(COEFF_FILE, coeff);
     end
