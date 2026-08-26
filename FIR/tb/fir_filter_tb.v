@@ -1,3 +1,4 @@
+// impulse response test, checks the filter's output magnitude matches the input
 module fir_filter_tb;
     reg clk;
     reg [15:0] in;
@@ -11,6 +12,8 @@ module fir_filter_tb;
 
     // this .hex file has all coefficients = h7FFF which represents the max value for Q15. this represents 1
     // meaning all outputs should be equal to the magnitude of the impulse
+    // NOTE: currently has no effect, fir_filter.v uses its hardcoded coeff[] instead of $readmemh.
+    // to actually run this test, comment out the hardcoded block in fir_filter.v and uncomment the $readmemh one.
     fir_filter #(.COEFF_FILE("../../../../../hex/test_coefficients.hex")) uut(.clk(clk), .in(in), .ena(ena), .reset(reset), .out(out));
 
     integer i;

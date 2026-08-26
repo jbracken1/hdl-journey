@@ -1,3 +1,4 @@
+// counts up once a second off a 100MHz clock, drives the 4-bit count onto the leds
 module led_blink(
     input clk_100MHz,
     output [3:0] clk_1Hz

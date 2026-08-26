@@ -17,6 +17,14 @@ communication pipeline for sending and receiving signal data from a host PC.
 - Validated filter behavior against a Python/SciPy reference using FFT analysis
 - UART TX and RX modules built from scratch (no IP cores)
 
+**Results** — input vs. filtered output, time and frequency domain. The lowpass
+attenuates the higher-frequency tone while passing the near-DC one through:
+
+| | Time domain | Frequency domain |
+|---|---|---|
+| Input  | ![input time domain](FIR/docs/input_time_domain.png) | ![input frequency domain](FIR/docs/input_frequency_domain.png) |
+| Output | ![output time domain](FIR/docs/output_time_domain.png) | ![output frequency domain](FIR/docs/output_frequency_domain.png) |
+
 ### UART (UART TX/RX)
 Full custom UART transmitter and receiver implemented in Verilog, tested on Basys 3 hardware.
 

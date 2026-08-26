@@ -1,3 +1,4 @@
+// traffic light fsm, cycles green -> yellow -> red -> green on each enable pulse
 module traffic_light(
     input clk,
     input reset,

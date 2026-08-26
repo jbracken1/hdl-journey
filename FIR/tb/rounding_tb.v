@@ -1,3 +1,4 @@
+// checks the rounding stage against uut.sum / uut.fixed_point_out
 module rounding_tb;
     reg clk;
     reg [15:0] in;

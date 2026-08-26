@@ -1,3 +1,4 @@
+// cycles through the 4 display digits, note: clocked directly off ena here instead of a separate clk+enable
 module counter_2bit(
     input ena,
     input reset,

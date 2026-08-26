@@ -17,8 +17,9 @@ module uart_rx_tb;
 
     uart_rx uut(.clk(clk), .baud_tick(baud_tick), .rx_pin(rx_pin), .rx_data(rx_data), .rx_valid(rx_valid));
 
-    integer i;
-    reg [7:0] data = 8'b1100_0110;
+    integer i, j;
+    reg [7:0] data = 8'hab;
+    reg [7:0] data1 = 8'hcd;
 
     initial begin
 
@@ -30,6 +31,21 @@ module uart_rx_tb;
 
         for (i=0; i < 8; i = i + 1) begin
             rx_pin = data[i];
+            @(posedge baud_tick);
+        end 
+
+        rx_pin = 1'b1;
+        @(posedge baud_tick);
+
+        $display("%b", rx_data);
+
+
+        // second data frame back to back
+        rx_pin = 1'b0;
+        @(posedge baud_tick);
+
+        for (j=0; j < 8; j = j + 1) begin
+            rx_pin = data1[j];
             @(posedge baud_tick);
         end 
 

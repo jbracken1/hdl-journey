@@ -1,3 +1,4 @@
+// testbench for alu, runs a few vectors through each opcode
 module alu_tb;
 
     reg [3:0] A, B;

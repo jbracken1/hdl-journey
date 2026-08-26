@@ -1,3 +1,4 @@
+// bcd digit (0-9) -> active-low 7-seg pattern
 module segment_decoder(
     input [3:0] in,
     output reg [6:0] out

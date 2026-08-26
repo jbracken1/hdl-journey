@@ -1,3 +1,4 @@
+// clock divider, pulses out once every time count hits max then wraps
 module clock_divider(
     input clk,
     input [26:0] max,

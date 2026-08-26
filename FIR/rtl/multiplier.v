@@ -1,3 +1,4 @@
+// registered multiplier, one per FIR tap
 module multiplier(
     input clk,
     input signed [15:0] a, b,

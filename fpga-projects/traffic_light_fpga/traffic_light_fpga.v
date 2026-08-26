@@ -1,3 +1,4 @@
+// top level, clock divider paces the traffic light fsm at ~1s per state
 module traffic_light_fpga(
     input clk,
     output red,

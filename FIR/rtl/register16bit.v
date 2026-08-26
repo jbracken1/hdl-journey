@@ -1,3 +1,4 @@
+// one stage of the FIR delay line, reset wins over ena
 module register16bit(
     input clk,
     input signed [15:0] in,

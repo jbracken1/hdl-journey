@@ -1,3 +1,4 @@
+// uart transmitter, loads tx_data + start/stop bits into the shift reg and shifts out on each baud_tick
 module uart_tx(
     input clk,
     input baud_tick,

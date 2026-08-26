@@ -5,7 +5,6 @@ module counter4bit(
     output reg [3:0] count 
 );
 
-    // comment
     always @(posedge clk) begin
         if (reset)
             count <= 4'b0;

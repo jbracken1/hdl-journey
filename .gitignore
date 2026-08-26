@@ -30,6 +30,7 @@ hdb/
 *.prj
 *.ini
 *.xpr
+*.wcfg
 glbl.v
 .Xil/
 *cache/

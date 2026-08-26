@@ -1,3 +1,5 @@
+// top level for the board demo, switches set A/B/opcode and the display
+// cycles through A, B, opcode, result. led[1]=zero, led[0]=carry
 module alu_top(
     input clk,
     input [10:0] sw,

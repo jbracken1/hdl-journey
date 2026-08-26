@@ -1,3 +1,4 @@
+// cycles through the 4 display digits, increments on each ena pulse
 module counter_2bit(
     input clk,
     input ena,

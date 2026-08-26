@@ -1,3 +1,5 @@
+// 4-bit alu, opcode picks the op (add/sub/and/or/xor/not/shl/shr)
+// zero flags result==0, carry only really means anything for add/sub
 module alu(
     input [3:0] A, B,
     input [2:0] opcode,

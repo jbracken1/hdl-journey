@@ -1,3 +1,4 @@
+// single bcd digit counter, wraps back to 0 at peak
 module bcd_count (
     input clk,
     input reset,        // Synchronous active-high reset

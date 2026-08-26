@@ -1,3 +1,4 @@
+// top level, multiplexes 4 switch-selected hex digits across the 7-seg display
 module seg7_display(
     input clk,
     input [15:0] sw,

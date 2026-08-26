@@ -1,3 +1,4 @@
+// runs a real signal through the filter and writes the result out to a hex file
 module signal_tb;
     reg clk;
     reg [15:0] in;

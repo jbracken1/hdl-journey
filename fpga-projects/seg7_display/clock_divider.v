@@ -1,3 +1,4 @@
+// clock divider, fixed to pulse out every 100_000 cycles
 module clock_divider(
     input clk,
     input reset,

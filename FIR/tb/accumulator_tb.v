@@ -1,3 +1,4 @@
+// checks the accumulator stage by watching uut.sum after feeding in constant samples
 module accumulator_tb;
     reg clk;
     reg [15:0] in;

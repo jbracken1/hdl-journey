@@ -1,3 +1,4 @@
+// top level for the bcd clock board demo, multiplexes hh:mm across the 7-seg display
 module bcd_clock_top(
     input clk,
     output reg [6:0] seg,

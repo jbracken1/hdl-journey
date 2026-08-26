@@ -1,3 +1,4 @@
+// bcd clock core, hh/mm/ss each built from two bcd digits chained by rollover enables
 module bcd_clock(
     input clk,
     input reset,
