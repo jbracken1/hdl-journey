@@ -1,6 +1,6 @@
 # hdl-journey
 
-A collection of HDL projects built while learning FPGA and digital hardware engineering.
+A collection of HDL projects I built while learning FPGA and digital hardware engineering.
 
 I'm Jack, an ECE student at Virginia Tech interested in FPGA design,
 RTL engineering, and DSP. This repo documents my progress learning Verilog through the 
@@ -13,12 +13,12 @@ A 32-tap lowpass FIR filter implemented in Verilog on the Basys 3 FPGA with a fu
 communication pipeline for sending and receiving signal data from a host PC.
 
 - Fixed-point Q15 arithmetic with a pipelined multiply-accumulate architecture
-- Resolved a -44ns timing violation by adding pipeline registers to the adder tree, achieving timing closure at 91MHz
+- Found and fixed a -44ns timing violation by adding pipeline registers to the adder tree, achieving timing closure at 91MHz
 - Validated filter behavior against a Python/SciPy reference using FFT analysis
 - UART TX and RX modules built from scratch (no IP cores)
 
-**Results** — input vs. filtered output, time and frequency domain. The lowpass
-attenuates the higher-frequency tone while passing the near-DC one through:
+**Results** - input vs. filtered output, time and frequency domain. The lowpass
+attenuates the higher-frequency tone while passing the lower frequency one through:
 
 | | Time domain | Frequency domain |
 |---|---|---|
@@ -36,7 +36,7 @@ Behavioral ALU supporting standard arithmetic and logic operations.
 - Basys 3 FPGA (Artix-7)
 - Python (NumPy, SciPy, Matplotlib, PySerial)
 
-## Goals Completed — Summer 2026
+## Goals Completed - Summer 2026
 - [x] Write Verilog modules and testbenches from scratch
 - [x] Deploy designs to FPGA hardware
 - [x] Build a DSP pipeline with hardware/software co-validation
