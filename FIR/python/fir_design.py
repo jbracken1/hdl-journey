@@ -18,6 +18,10 @@ x = x / np.max(np.abs(x))                           # Normalize to -1 to +1
 # time domain plot
 plt.figure()
 plt.plot(t, x)
+plt.title("Input Signal - Time Domain")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.title("Input Signal - Time Domain")
 plt.savefig("../docs/input_time_domain.png")
 
 # frequency domain plot
@@ -28,6 +32,10 @@ x_fdomain = np.absolute(x_fdomain)
 
 plt.figure()
 plt.plot(f, x_fdomain)
+plt.title("Input Signal - Frequency Domain")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Magnitude")
+plt.title("Input Signal - Frequency Domain")
 plt.savefig("../docs/input_frequency_domain.png")
 
 # writes the signal values in hex to input_signal.hex
@@ -61,6 +69,9 @@ with open("../hex/output_signal.hex", "r") as file:
 
 plt.figure()
 plt.plot(t, y)
+plt.title("Output Signal - Time Domain")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
 plt.savefig("../docs/output_time_domain.png")
 
 f = np.array(f)
@@ -72,6 +83,9 @@ y_fdomain = np.absolute(y_fdomain)
 
 plt.figure()
 plt.plot(f, y_fdomain)
+plt.title("Output Signal - Frequency Domain")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Magnitude")
 plt.savefig("../docs/output_frequency_domain.png")
 
 plt.show()
